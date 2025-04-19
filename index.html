@@ -5,18 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Density Collective</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
+    <script src="p5.min.js"></script>
+    <script src="vanta.trunk.min.js"></script>
+
     <style>
+        html {
+            background: #fff;
+        }
+
         body,
         html {
             height: 100%;
             margin: 0;
             font-family: "Space Grotesk", sans-serif;
-            background: #1e1e1e;
-            color: #c6c6c6;
+            color: #111;
+            scroll-behavior: smooth;
         }
 
         a,
@@ -24,120 +30,257 @@
             color: #ED2124;
         }
 
-        .navbar {
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #343a40;
-            padding: 0 10%;
-            color: white;
+            flex-direction: column;
+            min-height: 100vh;
         }
+
 
         .navbar a {
             color: white;
             padding: 14px 20px;
             text-decoration: none;
             text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #ED2124;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        #viz {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 125%;
+            height: 100%;
+            z-index: -1;
         }
 
         .hero {
-            padding: 20px 10%;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .hero-content {
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 800px;
         }
 
         .hero-title {
             margin: 0;
         }
 
+        .hero-title img {
+            max-width: 100%;
+            height: auto;
+        }
+
         .cta-button {
             display: inline-block;
             margin-top: 20px;
-            padding: 10px 30px;
+            padding: 12px 30px;
             background-color: #ED2124;
-            color: #1e1e1e !important;
+            color: #fff !important;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         .cta-button:hover {
             background-color: #b31416;
+            transform: translateY(-2px);
         }
 
         section {
-            padding: 20px 10%;
+            padding: 2rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        section h2 {
+            color: #111;
+            font-size: 2rem;
+            margin-top: 0;
+        }
+
+        p,
+        ul li {
+            font-size: 1em;
+            line-height: 1.6;
         }
 
         footer {
-            background-color: #343a40;
-            color: white;
             text-align: center;
             padding: 20px 0;
-            margin-top: 40px;
+            width: 100%;
+            backdrop-filter: blur(5px);
         }
 
-        p, ul li {
-            font-size: 1.4em;
+        .content-wrapper {
+            padding-top: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: rgba(237, 33, 36, 0.1);
+            color: #ED2124;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9em;
+        }
+
+        .highlight {
+            color: #ED2124;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 1.5rem;
+            }
+
+            p,
+            ul li {
+                font-size: 1em;
+            }
+
+            .column {
+                flex: 100%;
+            }
         }
     </style>
 </head>
 
 <body>
+    <div id="viz"></div>
 
-    <div class="hero">
-        <div class="hero-title">
-            <h1><img alt="Density Collective" src="DensityCollective.svg" width="100%" style="max-width: 500px;">
-            </h1>
-            <h2>Founder-led, Founder-aligned Collective</h2>
-            <p>We're a group of serious seasoned founders and technical builders coworking together in Chicago.</p>
-            <a href="#contact" class="cta-button">Apply Now</a>
+    <div class="container">
+        <!-- <nav class="navbar">
+            <a href="#deal">The Deal</a>
+            <a href="#apply" class="cta-button" style="padding: 8px 15px; margin: 5px;">Apply</a>
+        </nav> -->
+
+        <div class="main-content">
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="hero-title">
+                        <h1><img alt="Density Collective" src="density-collective-light.svg" width="100%"
+                                style="max-width: 300px;"></h1>
+                        <h2>Founder-led Collective</h2>
+                        <p>A high-density hub of top builders and founders creating the next generation of Chicago
+                            companies.</p>
+                        <a href="#apply" class="cta-button">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <section id="deal" class="two-column">
+                    <div class="column">
+                        <h2>The Deal</h2>
+                        <ul>
+                            <li><span class="highlight">$100/month</span> Dedicated desk space in shared office of
+                                founders (6-18 months)</li>
+                            <li>Co-mentorship from experienced founders</li>
+                            <li>Weekly small-group discussions for startup challenges</li>
+                            <li>Access to high-agency, execution-focused peers</li>
+                            <li>You agree to pitch Density and provide first look when you decide to raise</li>
+                        </ul>
+                    </div>
+
+                    <div class="column">
+                        <h2 id="criteria">Acceptance Criteria</h2>
+                        <ul>
+                            <li>In-person at least 4 days per week</li>
+                            <li>Full-time founder of a venture-backable business</li>
+                            <li>Working MVP or clear ability to build one</li>
+                            <li>Prior startup experience (at least one technical founder)</li>
+                            <li>Alignment with our culture</li>
+                        </ul>
+                        <div>
+                            <span class="tag">Don't be annoying</span>
+                            <span class="tag">Deep work</span>
+                            <span class="tag">High agency</span>
+                            <span class="tag">Definite optimism</span>
+                            <span class="tag">Share expertise</span>
+                            <span class="tag">Pay it forward</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="apply">
+                    <h2>Apply to Density</h2>
+                    <p>Ready to join Chicago's premier founder collective? Apply below with your team information,
+                        startup details, and why you want to be part of Density.</p>
+                    <iframe
+                        data-tally-src="https://tally.so/embed/3ExADN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                        loading="lazy" width="100%" height="361" frameborder="0" marginheight="0" marginwidth="0"
+                        title="Density Application"></iframe>
+                    <script>var d = document, w = "https://tally.so/widgets/embed.js", v = function () { "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function (e) { e.src = e.dataset.tallySrc })) }; if ("undefined" != typeof Tally) v(); else if (d.querySelector('script[src="' + w + '"]') == null) { var s = d.createElement("script"); s.src = w, s.onload = v, s.onerror = v, d.body.appendChild(s); }</script>
+                </section>
+            </div>
+
+            <footer>
+                Density Collective © 2025
+            </footer>
         </div>
     </div>
 
-    <section id="focus">
-        <h2>The Deal</h2>
-        <ul>
-            <li>Dedicated desk space in shared office of founders (approx 6-12 months).</li>
-            <li>Co-mentorship and expertise from founders in Density.</li>
-            <li>Weekly small-group discussions to work through startup challenges.</li>
-        </ul>
-    </section>
-
-    <section id="criteria">
-        <h2>Acceptance Criteria</h2>
-        <p>At Density, we have a clear set of standards to ensure that our community remains as impactful as possible:
-        </p>
-        <ul>
-            <li>Commitment to work in-person, in-office at least 4 days per week (except traveling).
-            </li>
-            <li>Scalable and venture backable business idea. Priority for AI and SaaS startups.</li>
-            <li>Plan to raise funding in 6-12 months or raised a small pre-seed already.</li>
-            <li>MVP built and on the market.</li>
-            <li>Founders with prior startup experience. At least one technical founder.</li>
-            <li>Willing to share expertise with fellow founders.</li>
-        </ul>
-    </section>
-
-    <section id="motivation">
-        <h2>Why are we doing this?</h2>
-        <p>Working from home alone on your startup sucks. Top founders in the same room fosters massive creativity and
-            support.</p>
-    </section>
-    <section id="contact">
-        <h2>Apply to Density</h2>
-        <p>Apply below with your
-            team's linkedins, link to your startup, and why you want to do it.</p>
-        <iframe
-            data-tally-src="https://tally.so/embed/3ExADN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-            loading="lazy" width="100%" height="361" frameborder="0" marginheight="0" marginwidth="0"
-            title="Density Application"></iframe>
-        <script>var d = document, w = "https://tally.so/widgets/embed.js", v = function () { "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function (e) { e.src = e.dataset.tallySrc })) }; if ("undefined" != typeof Tally) v(); else if (d.querySelector('script[src="' + w + '"]') == null) { var s = d.createElement("script"); s.src = w, s.onload = v, s.onerror = v, d.body.appendChild(s); }</script>
-    </section>
-    
-    <footer>
-        Density Collective © 2025
-    </footer>
+    <script>
+        VANTA.TRUNK({
+            el: "#viz",
+            mouseControls: false,
+            touchControls: false,
+            gyroControls: false,
+            minHeight: 150.00,
+            minWidth: 150.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: "#ED2124",
+            backgroundColor: "#fff",
+            chaos: 5.00,
+            spacing: 4.00,
+        })
+    </script>
 </body>
 
 </html>
