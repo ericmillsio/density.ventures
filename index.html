@@ -14,6 +14,13 @@
     <style>
         html {
             background: #fff;
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
         }
 
         body,
@@ -53,6 +60,8 @@
         }
 
         .main-content {
+            max-width: 800px;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -80,7 +89,7 @@
         .hero-content {
             padding: 2rem;
             border-radius: 10px;
-            max-width: 800px;
+            width: 100%;
         }
 
         .hero-title {
@@ -90,6 +99,11 @@
         .hero-title img {
             max-width: 100%;
             height: auto;
+        }
+
+        .hero-title h2 {
+            font-weight: 300;
+            font-size: 1.5em;
         }
 
         .cta-button {
@@ -115,7 +129,7 @@
 
         section {
             padding: 2rem 1rem;
-            max-width: 800px;
+            width: 100%;
             margin: 0 auto;
             border-radius: 10px;
             margin-bottom: 1.5rem;
@@ -123,8 +137,9 @@
 
         section h2 {
             color: #111;
-            font-size: 2rem;
-            margin-top: 0;
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-top: 1em;
         }
 
         p,
@@ -143,7 +158,6 @@
         .content-wrapper {
             padding-top: 2rem;
             width: 100%;
-            max-width: 1200px;
             margin: 0 auto;
             z-index: 1;
             display: flex;
@@ -206,7 +220,8 @@
                         <h1><img alt="Density Collective" src="density-collective-light.svg" width="100%"
                                 style="max-width: 300px;"></h1>
                         <h2>Founder-led Collective</h2>
-                        <p>A high-density hub of top builders and founders creating the next generation of Chicago
+                        <p style="max-width: 400px;">A high-density hub of top builders and founders creating the next
+                            generation of Chicago
                             companies.</p>
                         <a href="#apply" class="cta-button">Apply Now</a>
                     </div>
@@ -218,8 +233,8 @@
                     <div class="column">
                         <h2>The Deal</h2>
                         <ul>
-                            <li><span class="highlight">$100/month</span> Dedicated desk space in shared office of
-                                founders (6-18 months)</li>
+                            <li>Dedicated desk space in shared office of
+                                founders ($100/person/month, 6-18 months)</li>
                             <li>Co-mentorship from experienced founders</li>
                             <li>Weekly small-group discussions for startup challenges</li>
                             <li>Access to high-agency, execution-focused peers</li>
@@ -233,7 +248,8 @@
                             <li>In-person at least 4 days per week</li>
                             <li>Full-time founder of a venture-backable business</li>
                             <li>Working MVP or clear ability to build one</li>
-                            <li>Prior startup experience (at least one technical founder)</li>
+                            <li>Prior startup experience (second-time and exited founders preferred)</li>
+                            <li>At least one technical founder</li>
                             <li>Alignment with our culture</li>
                         </ul>
                         <div>
@@ -241,7 +257,7 @@
                             <span class="tag">Deep work</span>
                             <span class="tag">High agency</span>
                             <span class="tag">Definite optimism</span>
-                            <span class="tag">Share expertise</span>
+                            <span class="tag">Willingness to share expertise</span>
                             <span class="tag">Pay it forward</span>
                         </div>
                     </div>
@@ -249,8 +265,8 @@
 
                 <section id="apply">
                     <h2>Apply to Density</h2>
-                    <p>Ready to join Chicago's premier founder collective? Apply below with your team information,
-                        startup details, and why you want to be part of Density.</p>
+                    <p>We only contact applicants if we are interested. Interviews after are in-person for 30 minutes.
+                    </p>
                     <iframe
                         data-tally-src="https://tally.so/embed/3ExADN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
                         loading="lazy" width="100%" height="361" frameborder="0" marginheight="0" marginwidth="0"
