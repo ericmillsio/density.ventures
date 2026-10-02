@@ -61,6 +61,7 @@
 
         .main-content {
             max-width: 800px;
+            width: 100%;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -139,6 +140,19 @@
             font-size: 1.5rem;
             font-weight: 300;
             margin-top: 1em;
+        }
+
+        section h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .intro-video {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #111;
+            border-radius: 8px;
         }
 
         p,
@@ -231,7 +245,7 @@
             <div class="content-wrapper">
                 <section
                     style="padding: 1.25rem 1.5rem; background-color: rgba(237, 33, 36, 0.05); border-radius: 8px; width: 100%;">
-                    <h2 style="margin-top: 0; font-weight: 500;">Our Community</h3>
+                    <h2 style="margin-top: 0; font-weight: 500;">Our Community</h2>
                         <p>Density Collective brings together top Chicago founders, including:</p>
                         <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
                             <li><span class="highlight">YCombinator, Sequoia, Village
@@ -252,26 +266,65 @@
                 <section id="deal">
                     <h2>The Deal</h2>
                     <ul>
-                        <li>Dedicated desk space in shared office of
-                            founders ($125/person/month, 6-18 months)</li>
+                        <li>Desk space in a shared office of founders ($250/month dedicated; $125/month hot desk)</li>
                         <li>Co-mentorship from experienced founders</li>
                         <li>Weekly small-group discussions to overcome startup challenges</li>
                         <li>Access to high-agency, execution-focused peers</li>
                         <li>Access to funding opportunities from our network</li>
                     </ul>
                 </section>
+
+                <section id="intro">
+                    <h2>Meet Density</h2>
+                    <video class="intro-video" controls playsinline preload="none" crossorigin="anonymous"
+                        aria-label="Eric Mills introduces Density Collective" poster="https://media.licdn.com/dms/image/v2/D5605AQHtvZ62RWs4PQ/videocover-high/B56Zipf0iIH0CU-/0/1755190383705?e=2147483647&amp;v=beta&amp;t=lOsFb6bkW2f32XV-5XzR_gM-2kaLi_PUoVeaqiy3h5Y">
+                        <source src="https://dms.licdn.com/playlist/vid/v2/D5605AQHtvZ62RWs4PQ/mp4-720p-30fp-crf28/B56Zipf0iIH0B8-/0/1755190389420?e=2147483647&amp;v=beta&amp;t=JEnR3CH6099rOI_-JqzbZn2SniEJd_34O5IfEsKxiHg" type="video/mp4">
+                        <track kind="captions" src="https://dms.licdn.com/playlist/vid/v2/D5605AQHtvZ62RWs4PQ/video-auto-caption-webvtt-acs-singleton/B56Zipf0iIH0Ew-/0/1755190413334?e=2147483647&amp;v=beta&amp;t=Lf_yyXItYfm9tXcwGhMp4xqdeX7EAdwiAcFZYAacD8Y" srclang="en" label="English" default>
+                        <a href="https://www.linkedin.com/posts/ericmills2_chicago-has-long-deserved-a-serious-startup-activity-7361802102169358337-kgUG">Watch the intro video on LinkedIn</a>.
+                    </video>
+                    <p><a href="https://www.linkedin.com/posts/ericmills2_chicago-has-long-deserved-a-serious-startup-activity-7361802102169358337-kgUG">Watch the intro video on LinkedIn</a>.</p>
+                </section>
+
+                <section id="membership">
+                    <h2>Membership and Pricing</h2>
+                    <p>A 5k sqft space with around 30 desks in an open workspace at 215 W Superior St,
+                        Floor 7, Chicago.</p>
+                    <p>Free coffee and light snacks are included.</p>
+                    <ul>
+                        <li><strong>Founder Collective Desk:</strong> $250/month per dedicated desk</li>
+                        <li><strong>Founder Community Desk:</strong> $125/month per hot-desk membership</li>
+                        <li><strong>Builders-in-Residence (BIR) Community Desk:</strong> $125/month per hot-desk
+                            membership</li>
+                    </ul>
+                    <p>All memberships are billed quarterly in advance ($750 per dedicated desk or $375 per
+                        hot-desk membership). Dedicated desks have a three-month minimum and renew every three months
+                        unless you give at least 30 days' written notice before the term ends.</p>
+                    <p>All memberships run for up to 12 consecutive months; continuing requires reapplication and
+                        approval. Companies that close a Series A or have more than four full-time employees in the
+                        space must transition out,
+                        with limited extensions at Density's discretion.</p>
+                </section>
                 <section id="criteria">
                     <h2>Acceptance Criteria</h2>
+                    <h3>Founder Members</h3>
                     <ul>
-                        <li>In-person at least 4 days per week</li>
+                        <li>Dedicated desk members work in person at least four days per week (with exceptions for
+                            vacation or work travel). Community Desk members have no minimum in-office attendance
+                            requirement.</li>
                         <li>Full-time founder of a venture-backable business</li>
                         <li>Working MVP or clear ability to build one</li>
                         <li>Prior startup experience (second-time and exited founders preferred)</li>
                         <li>At least one technical founder</li>
-                        <li>You agree to pitch Density and provide first look when you decide to raise</li>
-                        <li>Contribute to growing the community</li>
-                        <li>Alignment with our culture</li>
+                        <li>Agree to pitch Density and its aligned capital partners if and when you fundraise, with no
+                            obligation to accept an investment</li>
+                        <li>Share quarterly company updates with Density and its aligned capital partners</li>
                     </ul>
+                    <h3>Builders-in-Residence</h3>
+                    <p>Experienced operators, exited founders, and domain experts who contribute through expertise,
+                        connections, and mentorship, even if they're not building a startup full-time. BIRs have no
+                        minimum in-office attendance requirement and no fundraising or quarterly reporting obligations.</p>
+                    <p>All members must align with our culture, participate in the community, take on a small role,
+                        and refer at least one qualified founder per membership term.</p>
                     <div>
                         <span class="tag">Don't be annoying</span>
                         <span class="tag">Deep work</span>
@@ -282,28 +335,52 @@
                     </div>
                 </section>
 
+                <section id="faq">
+                    <h2>Frequently Asked Questions</h2>
+                    <h3>When can I access the space?</h3>
+                    <p>Members have 24/7 access, including evenings and weekends. Enter the building from your phone
+                        with the ButterflyMX mobile app.</p>
+                    <h3>Where can I take calls or meetings?</h3>
+                    <p>The space has five meeting rooms and one phone booth.</p>
+                    <h3>What comes with a desk?</h3>
+                    <p>Fiber internet over Wi-Fi, a desk, and a chair are included. Some desks also have a drawer.</p>
+                    <h3>Can I bring guests or teammates?</h3>
+                    <p>Yes. You're responsible for your guests, and ButterflyMX lets you issue guest passes. Teammates
+                        who use the space frequently need their own paid memberships (at least one member of your team
+                        must be a founder).</p>
+                    <h3>Can I see the space before joining?</h3>
+                    <p>Yes. Apply first, and we'll reach out to arrange a visit if your application is a fit.</p>
+                    <h3>Does membership require equity or give Density investment rights?</h3>
+                    <p>No. Membership requires no equity and grants no investment rights. Founder Members agree to
+                        pitch Density and its aligned capital partners if and when they fundraise, with no obligation
+                        to accept an investment afterward.</p>
+                </section>
+
                 <section id="apply">
                     <h2>Apply to Density</h2>
-                    <p>We only contact applicants if we are interested. Interviews after are in-person for 30 minutes.
-                    </p>
+                    <p>We contact applicants we're interested in. The process includes a conversation with our
+                        Membership Lead and an in-person interview with a Lead and an active member.</p>
                     <p>Applications are reviewed on a <span class="highlight">rolling basis</span>. We are selectively
                         seeking the <span class="highlight">best founders in Chicago</span>.</p>
 
                     <iframe
                         data-tally-src="https://tally.so/embed/3ExADN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-                        loading="lazy" width="100%" height="361" frameborder="0" marginheight="0" marginwidth="0"
+                        loading="lazy" width="100%" height="361" style="border: 0;"
                         title="Density Application"></iframe>
                     <script>var d = document, w = "https://tally.so/widgets/embed.js", v = function () { "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function (e) { e.src = e.dataset.tallySrc })) }; if ("undefined" != typeof Tally) v(); else if (d.querySelector('script[src="' + w + '"]') == null) { var s = d.createElement("script"); s.src = w, s.onload = v, s.onerror = v, d.body.appendChild(s); }</script>
+                    <p><a href="https://tally.so/r/3ExADN">Open the application directly</a> if the form doesn't load.</p>
                 </section>
             </div>
 
             <footer>
-                Density Collective © 2025
+                Density Collective © <span id="copyright-year">2026</span>
             </footer>
         </div>
     </div>
 
     <script>
+        document.getElementById("copyright-year").textContent = new Date().getFullYear();
+
         VANTA.TRUNK({
             el: "#viz",
             mouseControls: false,
